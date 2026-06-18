@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALIZE MOBILE CENTER - One Stop Mobile Solution</title>
+    <!-- Google Font: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        navyDark: '#0F172A',
+                        primaryBlue: '#2563EB',
+                        goldAmber: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- MASUKKAN URL WEB APP GAS ANDA DI SINI -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyXnqdytkqILCc129M8_83x99l8pbUJ4Q-_x7VZjvHymOH8oqK7zwSnJo4wBEByr2NO/exec";
+        const WA_ADMIN = "6285314146668";
+    </script>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 bg-gradient-to-tr from-primaryBlue to-blue-700 rounded-2xl flex items-center justify-center text-white font-extrabold text-2xl shadow-lg shadow-blue-500/30">
+                    A
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-xl tracking-tight text-navyDark leading-none">ALIZE</span>
+                    <span class="text-[10px] text-primaryBlue font-bold tracking-widest uppercase mt-1 bg-blue-50 px-2 py-0.5 rounded border border-blue-200/50">MOBILE CENTER</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex space-x-8 font-semibold text-slate-600 text-sm">
+                <a href="#tentang" class="hover:text-primaryBlue transition">Tentang Kami</a>
+                <a href="#edukasi" class="hover:text-primaryBlue transition">Edukasi Servis</a>
+                <a href="#katalog" class="hover:text-primaryBlue transition">Beli HP</a>
+                <a href="#jual-hp" class="hover:text-primaryBlue transition">Jual HP Anda</a>
+                <a href="#servis-section" class="hover:text-primaryBlue transition">Booking Servis</a>
+                <a href="#tracking-section" class="hover:text-primaryBlue transition">Lacak Progres</a>
+            </nav>
+            <a href="https://wa.me/6285314146668" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-2xl font-bold flex items-center space-x-2 shadow-lg shadow-emerald-500/20 transition duration-300 text-sm">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span>WhatsApp Admin</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-br from-navyDark via-slate-900 to-blue-900 py-24 px-4 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/30 text-blue-300 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase">
+                    <i class="fa-solid fa-mobile-screen"></i> One Stop Mobile Solution
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Solusi Terpercaya Untuk<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-amber-300 to-emerald-400">Gawai & Kebutuhan Digital Anda</span>
+                </h1>
+                <p class="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
+                    <strong>ALIZE MOBILE CENTER</strong> adalah pusat layanan mobile dan digital terpercaya yang menyediakan servis handphone, jual beli HP baru dan bekas, pulsa, paket data, token PLN, top up e-wallet, serta berbagai kebutuhan digital lainnya. Berawal dari ALIZE PHONE di Tasikmalaya, kami hadir untuk memberikan solusi teknologi yang mudah, cepat, aman, dan terpercaya dalam satu tempat. 🚀
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-4">
+                    <a href="#servis-section" class="w-full sm:w-auto bg-primaryBlue hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-blue-600/50 transition duration-300 text-center">
+                        <i class="fa-solid fa-screwdriver-wrench mr-2"></i> Ajukan Servis Online
+                    </a>
+                    <a href="#katalog" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-2xl border border-white/20 backdrop-blur transition duration-300 text-center">
+                        <i class="fa-solid fa-basket-shopping mr-2"></i> Cari HP Baru/Second
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual Panel (Illustrating Tech/Repairs) -->
+            <div class="lg:col-span-5 relative">
+                <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600 to-amber-500 opacity-30 blur-2xl"></div>
+                <div class="relative bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 shadow-2xl backdrop-blur-md">
+                    <!-- Tech header style -->
+                    <div class="flex items-center justify-between mb-6 border-b border-slate-700 pb-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">ALIZE_LAB_SYSTEM_ON</span>
+                    </div>
+                    <!-- Mock Image of Technician Repairing -->
+                    <div class="rounded-2xl overflow-hidden h-64 bg-slate-900 relative">
+                        <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?w=600" alt="ALIZE Phone Service Lab" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-3 py-1 rounded-full text-[11px] font-bold"><i class="fa-solid fa-circle-nodes mr-1 animate-pulse"></i> Teknisi Aktif</span>
+                            <span class="text-xs text-slate-300 font-bold">Lab Utama Tasikmalaya</span>
+                        </div>
+                    </div>
+                    <!-- Tiny info card inside -->
+                    <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50 text-center">
+                            <span class="text-slate-400 block mb-1">Garansi Unit</span>
+                            <strong class="text-amber-400 font-bold text-sm">Hingga 1 Tahun</strong>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50 text-center">
+                            <span class="text-slate-400 block mb-1">Standarisasi ESD</span>
+                            <strong class="text-blue-400 font-bold text-sm">Aman Suku Cadang</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE TRACKING WIDGET -->
+    <section id="tracking-section" class="max-w-4xl mx-auto -mt-10 px-4 relative z-20">
+        <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-slate-200/80">
+            <div class="text-center md:text-left mb-6">
+                <h3 class="text-xl font-bold text-navyDark flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-primaryBlue"></i> Lacak Progres Servis Gadget Anda
+                </h3>
+                <p class="text-slate-500 text-sm">Masukkan nomor tanda terima atau ID servis Anda (Contoh: SRV-2026-0001)</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" id="tracking-id" placeholder="Masukkan ID Servis..." class="flex-1 bg-slate-50 border border-slate-300 px-5 py-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primaryBlue font-semibold uppercase placeholder:normal-case">
+                <button onclick="trackService()" class="bg-navyDark hover:bg-slate-800 text-white px-8 py-4 rounded-2xl font-bold transition flex items-center justify-center gap-2">
+                    Cari Data <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- RESULT WINDOW -->
+            <div id="tracking-result" class="hidden mt-8 border-t border-slate-100 pt-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-slate-50 p-4 rounded-2xl text-sm">
+                    <div>
+                        <span class="text-slate-400 block">Tipe HP:</span>
+                        <strong class="text-navyDark" id="res-tipe-hp">-</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block">Pemilik:</span>
+                        <strong class="text-navyDark" id="res-nama">-</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block">Biaya Perbaikan:</span>
+                        <strong class="text-emerald-600 font-bold text-base" id="res-biaya">-</strong>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-2 pt-4">
+                    <div class="hidden md:block absolute left-0 right-0 h-1 bg-slate-200 top-1/2 -translate-y-1/2 z-0"></div>
+                    
+                    <div class="flex items-center gap-3 md:flex-col md:text-center z-10 flex-1 w-full" id="step-Diterima">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow">1</div>
+                        <span class="text-sm font-semibold">Diterima</span>
+                    </div>
+                    <div class="flex items-center gap-3 md:flex-col md:text-center z-10 flex-1 w-full" id="step-Diagnosa">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow">2</div>
+                        <span class="text-sm font-semibold">Diagnosa</span>
+                    </div>
+                    <div class="flex items-center gap-3 md:flex-col md:text-center z-10 flex-1 w-full" id="step-Perbaikan">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow">3</div>
+                        <span class="text-sm font-semibold">Perbaikan</span>
+                    </div>
+                    <div class="flex items-center gap-3 md:flex-col md:text-center z-10 flex-1 w-full" id="step-Selesai">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow">4</div>
+                        <span class="text-sm font-semibold">Selesai</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-xl text-sm" id="res-catatan-container">
+                    <strong>Catatan Progress:</strong> <span id="res-catatan">Belum ada keterangan tambahan.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI SECTION (ALIZE STORY) -->
+    <section id="tentang" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Side Image representing experience -->
+            <div class="lg:col-span-5 relative">
+                <div class="absolute inset-0 bg-blue-500 rounded-3xl rotate-3 opacity-10"></div>
+                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=600" alt="Tentang ALIZE PHONE" class="w-full rounded-3xl object-cover relative z-10 shadow-lg border border-slate-200">
+            </div>
+            <!-- Right Side content (User custom text) -->
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-primaryBlue font-bold text-sm tracking-wider uppercase bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100">Profil Perusahaan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navyDark">Tentang ALIZE MOBILE CENTER</h2>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    <strong>ALIZE MOBILE CENTER</strong> adalah platform layanan digital yang lahir dari pengalaman dan dedikasi <strong>ALIZE PHONE</strong>, sebuah konter dan pusat servis handphone yang telah melayani berbagai kebutuhan pelanggan di bidang perbaikan perangkat, jual beli handphone, serta layanan digital lainnya di wilayah Tasikmalaya.
+                </p>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Kami hadir untuk memberikan kemudahan bagi masyarakat dalam mendapatkan layanan teknologi yang cepat, aman, dan terpercaya. Melalui ALIZE MOBILE CENTER, pelanggan dapat mengakses berbagai layanan dalam satu platform, mulai dari servis handphone, jual beli HP baru dan bekas, pembelian pulsa dan paket data, token PLN, top up e-wallet, hingga berbagai kebutuhan digital lainnya.
+                </p>
+
+                <!-- Visi & Misi Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
+                    <div class="space-y-2">
+                        <h4 class="font-extrabold text-navyDark flex items-center gap-2"><i class="fa-solid fa-eye text-primaryBlue"></i> Visi Kami</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Menjadi pusat layanan mobile dan digital terpercaya yang memberikan solusi lengkap, mudah, dan terjangkau bagi masyarakat.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-extrabold text-navyDark flex items-center gap-2"><i class="fa-solid fa-list-check text-primaryBlue"></i> Misi Kami</h4>
+                        <ul class="text-slate-500 text-xs space-y-1">
+                            <li><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> Layanan servis profesional & transparan.</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> Produk berkualitas & harga kompetitif.</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> Kemudahan transaksi digital satu tempat.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEDIA EDUKASI GADGET (NEW FEATURE) -->
+    <section id="edukasi" class="bg-gradient-to-br from-slate-900 to-navyDark text-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amber-400 font-bold text-sm uppercase tracking-wider">Ruang Edukasi ALIZE</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-1">Edukasi & Tips Merawat Gawai</h2>
+                <p class="text-slate-400 mt-2">Pahami kesehatan perangkat Anda sejak dini agar terhindar dari kerusakan parah dan pengeluaran yang tidak perlu.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Edu 1 -->
+                <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-3xl hover:border-amber-400 transition-all duration-300">
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 text-lg font-bold mb-4">
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Tanda Baterai HP Harus Diganti</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Periksa apakah persentase baterai HP Anda mendadak turun drastis, HP mati saat baterai masih 20%, atau bagian belakang terasa cembung akibat kembung. Ganti segera agar tidak merusak layar LCD dari dalam.
+                    </p>
+                </div>
+                <!-- Edu 2 -->
+                <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-3xl hover:border-blue-400 transition-all duration-300">
+                    <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 text-lg font-bold mb-4">
+                        <i class="fa-solid fa-droplet-slash"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">HP Kemasukan Air? Jangan Beras!</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Hindari merendam HP di beras karena bubuk beras dapat masuk ke celah mesin dan mengering. Matikan HP segera, keringkan bagian luar, jangan di-charge, dan bawa ke teknisi secepat mungkin untuk dibersihkan dari korosi.
+                    </p>
+                </div>
+                <!-- Edu 3 -->
+                <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-3xl hover:border-emerald-400 transition-all duration-300">
+                    <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-lg font-bold mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Tips Membeli HP Bekas (Second)</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Pastikan memeriksa fungsionalitas dasar seperti layar LCD, speaker atas/bawah, mikrofon, sensor face/fingerprint, kamera depan/belakang, dan yang paling krusial: **pastikan nomor IMEI terdaftar resmi Kemenperin**.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKETPLACE: BELI HP -->
+    <section id="katalog" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-navyDark">Daftar Gadget Ready Stock</h2>
+                    <p class="text-slate-500 mt-2">Daftar unit HP yang ready di konter ALIZE. Data diperbarui langsung dari Google Sheets.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="filterCatalog('Semua')" id="btn-filter-Semua" class="px-5 py-2.5 rounded-full text-sm font-bold bg-primaryBlue text-white shadow-md shadow-blue-500/20">Semua</button>
+                    <button onclick="filterCatalog('Baru')" id="btn-filter-Baru" class="px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200">Baru</button>
+                    <button onclick="filterCatalog('Second')" id="btn-filter-Second" class="px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200">Second</button>
+                </div>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Loading State -->
+                <div class="col-span-full py-12 text-center text-slate-500">
+                    <i class="fa-solid fa-circle-notch fa-spin text-3xl text-primaryBlue mb-3"></i>
+                    <p class="font-medium">Memuat katalog stok gadget dari database...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUAL HP ANDA KE KONTER (NEW FORM) -->
+    <section id="jual-hp" class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-gradient-to-tr from-navyDark to-slate-900 text-white rounded-3xl shadow-xl p-8 border border-slate-800">
+            <div class="text-center max-w-xl mx-auto mb-8">
+                <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">Punya Gawai Tak Terpakai?</span>
+                <h2 class="text-3xl font-bold mt-1">Jual HP Anda ke Konter ALIZE</h2>
+                <p class="text-slate-400 text-sm mt-2">Isi data spesifikasi HP lama Anda di bawah ini. Kami akan memproses penawaran harga terbaik secara instan.</p>
+            </div>
+
+            <form id="jual-form" onsubmit="submitJualHP(event)" class="space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Nama Lengkap</label>
+                        <input type="text" id="jual-nama" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white" placeholder="Budi Santoso">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Nomor WhatsApp</label>
+                        <input type="tel" id="jual-wa" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white" placeholder="08123456789">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Merk & Tipe HP</label>
+                        <input type="text" id="jual-tipe" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white" placeholder="Oppo Reno 10">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Kapasitas RAM / ROM</label>
+                        <input type="text" id="jual-ram-rom" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white" placeholder="8GB / 256GB">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Kondisi HP</label>
+                        <select id="jual-kondisi" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white">
+                            <option value="Mulus Total (Fullset)">Mulus Total (Fullset/Lengkap)</option>
+                            <option value="Lecet Pemakaian (Fullset)">Lecet Pemakaian (Fullset/Lengkap)</option>
+                            <option value="Hanya HP Saja (Batangan)">HP Saja (Batangan/No-Box)</option>
+                            <option value="Ada Minus Fisik/Mesin">Ada Minus (Layar retak/Fungsi berkurang)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Harga yang Diinginkan</label>
+                    <input type="number" id="jual-harga" required class="w-full bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue text-white" placeholder="Contoh: 1500000">
+                </div>
+
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-navyDark font-extrabold py-4 rounded-2xl shadow-lg shadow-amber-500/20 transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-tags"></i> Ajukan Penjualan HP Sekarang
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FORM BOOKING SERVIS ONLINE -->
+    <section id="servis-section" class="max-w-4xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200/80">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-primaryBlue font-bold tracking-wider uppercase text-xs">Pusat Layanan Servis</span>
+                <h2 class="text-3xl font-bold text-navyDark mt-1">Registrasi Servis Online</h2>
+                <p class="text-slate-500 text-sm mt-2">Dapatkan antrian cepat dan layanan penjemputan unit servis langsung ke lokasi tempat tinggal Anda.</p>
+            </div>
+
+            <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Nama Lengkap</label>
+                        <input type="text" id="form-nama" required class="w-full bg-slate-50 border border-slate-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue" placeholder="Budi Santoso">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Nomor WhatsApp</label>
+                        <input type="tel" id="form-wa" required class="w-full bg-slate-50 border border-slate-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue" placeholder="08123456789">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Tipe HP & Merk</label>
+                        <input type="text" id="form-tipe" required class="w-full bg-slate-50 border border-slate-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue" placeholder="Xiaomi Note 10">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Metode Pengiriman</label>
+                        <select id="form-metode" required onchange="toggleAlamat()" class="w-full bg-slate-50 border border-slate-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue">
+                            <option value="Antar Sendiri">Antar Sendiri ke Konter ALIZE</option>
+                            <option value="Jemput Kurir">Minta Kurir Jemput ke Rumah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="alamat-container" class="hidden">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Alamat Penjemputan</label>
+                    <textarea id="form-alamat" rows="2" class="w-full bg-slate-50 border border-slate-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue" placeholder="Tuliskan nama jalan, RT/RW, kelurahan, kecamatan secara lengkap..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Keluhan / Masalah Kerusakan</label>
+                    <textarea id="form-keluhan" required rows="3" class="w-full bg-slate-50 border border-slate-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-primaryBlue" placeholder="Sebutkan masalah kerusakan pada perangkat Anda..."></textarea>
+                </div>
+
+                <button type="submit" id="btn-submit-booking" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Daftarkan Jadwal Servis Anda
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ALKIAN LAYANAN DI BAWAH (AJANG IKLAN DIGITAL) -->
+    <section class="bg-slate-100 py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center font-bold text-navyDark text-xl mb-10 uppercase tracking-widest text-slate-400">Layanan Digital & PPOB di Konter Kami</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 text-center">
+                    <i class="fa-solid fa-phone text-blue-500 text-2xl mb-2"></i>
+                    <h5 class="font-bold text-sm">Pulsa & Data</h5>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 text-center">
+                    <i class="fa-solid fa-bolt text-amber-500 text-2xl mb-2"></i>
+                    <h5 class="font-bold text-sm">Token PLN</h5>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 text-center">
+                    <i class="fa-solid fa-wallet text-emerald-500 text-2xl mb-2"></i>
+                    <h5 class="font-bold text-sm">Isi E-Wallet</h5>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 text-center">
+                    <i class="fa-solid fa-headset text-indigo-500 text-2xl mb-2"></i>
+                    <h5 class="font-bold text-sm">Aksesoris HP</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navyDark text-slate-400 py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primaryBlue rounded-xl flex items-center justify-center text-white font-extrabold text-xl">
+                        A
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight text-white">ALIZE PHONE</span>
+                </div>
+                <p class="leading-relaxed">Platform digital layanan mobile terpercaya asal Tasikmalaya yang berkomitmen memberikan solusi terlengkap dengan standar profesional tinggi.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-base">Alamat & Jam Operasional</h4>
+                <p class="leading-relaxed">
+                    <i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> 
+                    Jln. Bojong Jengkol Kp. Pasar Kaler No. 12 Sirnagalih, Kota Tasikmalaya
+                </p>
+                <p>
+                    <i class="fa-solid fa-clock text-blue-400 mr-2"></i> 
+                    Setiap Hari: 08.00 WIB – 21.00 WIB
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-base">Hubungi Kami</h4>
+                <p><i class="fa-solid fa-envelope text-slate-500 mr-2"></i> support@alizemobile.com</p>
+                <p><i class="fab fa-whatsapp text-emerald-500 mr-2"></i> +62 853-1414-6668</p>
+                <div class="pt-2 flex space-x-3">
+                    <a href="https://wa.me/6285314146668" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-emerald-500 transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-primaryBlue transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-rose-500 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto border-t border-slate-800 mt-12 pt-8 text-center text-xs">
+            &copy; 2026 ALIZE MOBILE CENTER. All Rights Reserved. Designed for Professional Services.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        let allProducts = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchProducts();
+        });
+
+        // 1. Ambil Katalog Produk dari database Google Sheets
+        async function fetchProducts() {
+            try {
+                const response = await fetch(`${API_URL}?action=Stok_HP`);
+                allProducts = await response.json();
+                renderCatalog(allProducts);
+            } catch (error) {
+                console.error("Gagal mengambil katalog produk:", error);
+                document.getElementById("product-grid").innerHTML = `
+                    <div class="col-span-full py-12 text-center text-rose-500">
+                        <i class="fa-solid fa-triangle-exclamation text-3xl mb-3"></i>
+                        <p class="font-bold">Gagal memuat katalog. Stok gawai ready dapat Anda tanyakan langsung ke admin via WhatsApp.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render data ke tampilan web
+        function renderCatalog(products) {
+            const grid = document.getElementById("product-grid");
+            if (products.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-500">Tidak ada unit gawai dalam kategori ini.</p>`;
+                return;
+            }
+
+            grid.innerHTML = products.map(prod => {
+                const hargaFormat = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(prod.Harga);
+                const badgeColor = prod.Kondisi === "Baru" ? "bg-blue-100 text-blue-800" : "bg-amber-100 text-amber-800";
+                
+                return `
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="relative h-48 bg-slate-100 flex items-center justify-center overflow-hidden">
+                            <img src="${prod.Foto_URL}" alt="${prod.Nama_HP}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                            <span class="absolute top-3 left-3 ${badgeColor} text-xs font-extrabold px-3 py-1 rounded-full uppercase">${prod.Kondisi}</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">${prod.Merk}</span>
+                                <h4 class="font-extrabold text-navyDark text-lg mt-1 line-clamp-1">${prod.Nama_HP}</h4>
+                                <p class="text-slate-500 text-xs mt-2 line-clamp-2">${prod.Deskripsi}</p>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-slate-100">
+                                <span class="text-xs text-slate-400 block">Harga Pas:</span>
+                                <span class="text-primaryBlue font-extrabold text-xl">${hargaFormat}</span>
+                                
+                                <div class="grid grid-cols-2 gap-2 mt-4">
+                                    <button onclick="openNegoModal('${prod.Nama_HP}', ${prod.Harga}, ${prod.Min_Nego})" class="w-full bg-slate-100 hover:bg-amber-500 hover:text-white text-navyDark font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                        <i class="fa-solid fa-tags"></i> Nego Harga
+                                    </button>
+                                    <a href="https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20apakah%20stok%20${encodeURIComponent(prod.Nama_HP)}%20dengan%20harga%20${encodeURIComponent(hargaFormat)}%20masih%20ready%20di%20konter?" target="_blank" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-1">
+                                        <i class="fab fa-whatsapp"></i> Beli Sekarang
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter Baru/Bekas
+        function filterCatalog(kategori) {
+            const filters = ["Semua", "Baru", "Second"];
+            filters.forEach(f => {
+                const btn = document.getElementById(`btn-filter-${f}`);
+                if (f === kategori) {
+                    btn.className = "px-5 py-2.5 rounded-full text-sm font-bold bg-primaryBlue text-white shadow-md shadow-blue-500/20";
+                } else {
+                    btn.className = "px-5 py-2.5 rounded-full text-sm font-bold bg-white text-slate-600 hover:bg-slate-50 border border-slate-200";
+                }
+            });
+
+            if (kategori === "Semua") {
+                renderCatalog(allProducts);
+            } else {
+                const filtered = allProducts.filter(p => p.Kondisi === kategori);
+                renderCatalog(filtered);
+            }
+        }
+
+        // Tampilkan alamat jemput servis
+        function toggleAlamat() {
+            const metode = document.getElementById("form-metode").value;
+            const container = document.getElementById("alamat-container");
+            const inputAlamat = document.getElementById("form-alamat");
+            if (metode === "Jemput Kurir") {
+                container.classList.remove("hidden");
+                inputAlamat.setAttribute("required", "required");
+            } else {
+                container.classList.add("hidden");
+                inputAlamat.removeAttribute("required");
+            }
+        }
+
+        // Kirim Form Booking Servis
+        async function submitBooking(event) {
+            event.preventDefault();
+            const btnSubmit = document.getElementById("btn-submit-booking");
+            btnSubmit.setAttribute("disabled", "true");
+            btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sedang memproses pendaftaran...`;
+
+            const nama = document.getElementById("form-nama").value;
+            const no_wa = document.getElementById("form-wa").value;
+            const tipe_hp = document.getElementById("form-tipe").value;
+            const metode = document.getElementById("form-metode").value;
+            const alamat = document.getElementById("form-alamat").value;
+            const keluhan = document.getElementById("form-keluhan").value;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        action: "booking_servis",
+                        nama,
+                        no_wa,
+                        tipe_hp,
+                        metode,
+                        alamat,
+                        keluhan
+                    })
+                });
+                const resData = await response.json();
+
+                if (resData.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Berhasil!',
+                        html: `Kode Servis Anda: <strong class="text-2xl text-blue-600 block my-3">${resData.id_servis}</strong><br>Simpan kode tersebut untuk melacak proses pengerjaan.`,
+                        confirmButtonText: 'Konfirmasi via WhatsApp',
+                        confirmButtonColor: '#2563EB',
+                    }).then(() => {
+                        document.getElementById("booking-form").reset();
+                        document.getElementById("alamat-container").classList.add("hidden");
+                        window.open(`https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20saya%20baru%20saja%20mendaftarkan%20booking%20servis%20online%20dengan%20Kode%20Servis%20${resData.id_servis}`, '_blank');
+                    });
+                }
+            } catch (error) {
+                console.error("Gagal melakukan booking:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal Menghubungi Server',
+                    text: 'Gagal mengirim pendaftaran ke database. Pendaftaran Anda dapat diproses manual melalui WhatsApp admin.',
+                    confirmButtonText: 'Hubungi WhatsApp',
+                    confirmButtonColor: '#10B981',
+                }).then(() => {
+                    window.open(`https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20saya%20ingin%20menservis%20HP%20saya%20yaitu%20${encodeURIComponent(tipe_hp)}`, '_blank');
+                });
+            } finally {
+                btnSubmit.removeAttribute("disabled");
+                btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Daftarkan Jadwal Servis Anda`;
+            }
+        }
+
+        // Lacak Status Servis
+        async function trackService() {
+            const trackingId = document.getElementById("tracking-id").value.trim();
+            const resultBox = document.getElementById("tracking-result");
+            
+            if (!trackingId) {
+                Swal.fire('Input Kosong', 'Harap masukkan ID Servis Anda terlebih dahulu.', 'warning');
+                return;
+            }
+
+            resultBox.classList.add("hidden");
+            Swal.fire({
+                title: 'Menghubungi Lab Utama...',
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); }
+            });
+
+            try {
+                const response = await fetch(`${API_URL}?action=Data_Servis&id_servis=${encodeURIComponent(trackingId)}`);
+                const res = await response.json();
+
+                Swal.close();
+
+                if (res.success) {
+                    const data = res.data;
+                    document.getElementById("res-tipe-hp").innerText = data.Tipe_HP;
+                    document.getElementById("res-nama").innerText = data.Nama;
+                    
+                    const biayaFormat = data.Biaya && data.Biaya > 0 
+                        ? new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(data.Biaya) 
+                        : "Sedang dianalisis (Menunggu Diagnosa)";
+                    document.getElementById("res-biaya").innerText = biayaFormat;
+                    document.getElementById("res-catatan").innerText = data.Catatan || "Perangkat sudah diterima oleh teknisi lab.";
+
+                    // Update Timeline Visual
+                    const steps = ["Diterima", "Diagnosa", "Perbaikan", "Selesai"];
+                    const currentStatus = data.Status;
+                    const currentActiveIndex = steps.indexOf(currentStatus);
+
+                    steps.forEach((step, index) => {
+                        const stepEl = document.getElementById(`step-${step}`);
+                        const icon = stepEl.querySelector(".step-icon");
+
+                        if (index <= currentActiveIndex) {
+                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-primaryBlue text-white step-icon shadow-lg shadow-blue-500/30 transition-all duration-300";
+                            stepEl.classList.add("text-primaryBlue");
+                        } else {
+                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow transition-all duration-300";
+                            stepEl.classList.remove("text-primaryBlue");
+                        }
+                    });
+
+                    resultBox.classList.remove("hidden");
+                } else {
+                    Swal.fire('ID Tidak Ditemukan', res.message || 'ID Servis yang Anda masukkan tidak terdaftar.', 'error');
+                }
+            } catch (error) {
+                console.error("Gagal melacak:", error);
+                Swal.fire('Eror Jaringan', 'Terjadi gangguan koneksi internet saat mengambil data.', 'error');
+            }
+        }
+
+        // Modal Nego Harga
+        function openNegoModal(namaHP, hargaAsli, hargaMinimum) {
+            Swal.fire({
+                title: `Ajukan Penawaran`,
+                html: `
+                    <p class="text-sm text-slate-500 mb-4">Unit: <strong class="text-slate-800">${namaHP}</strong><br>Harga Resmi: <strong class="text-blue-600">${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(hargaAsli)}</strong></p>
+                    <input type="number" id="nego-amount" class="swal2-input !mx-auto !w-11/12 focus:ring-primaryBlue" placeholder="Masukkan harga tawaran Anda...">
+                `,
+                showCancelButton: true,
+                confirmButtonText: 'Kirim Nego',
+                cancelButtonText: 'Batal',
+                confirmButtonColor: '#2563EB',
+                preConfirm: () => {
+                    const tawaran = parseInt(document.getElementById('nego-amount').value);
+                    if (!tawaran || isNaN(tawaran)) {
+                        Swal.showValidationMessage('Masukkan nilai tawaran yang sah!');
+                        return false;
+                    }
+                    return tawaran;
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const tawaranUser = result.value;
+                    const formattedTawaran = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(tawaranUser);
+
+                    if (tawaranUser < hargaMinimum) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Nego Ditangguhkan',
+                            text: `Sistem mendeteksi tawaran Anda terlalu jauh di bawah harga pasar. Harap hubungi WhatsApp Admin untuk nego manual secara kekeluargaan.`,
+                            confirmButtonText: 'Hubungi WhatsApp',
+                            confirmButtonColor: '#10B981',
+                        }).then((waRedirect) => {
+                            if (waRedirect.isConfirmed) {
+                                window.open(`https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20saya%20tertarik%20dengan%20unit%20HP%20${encodeURIComponent(namaHP)}%20dan%20ingin%20mengajukan%20nego%20harga%20secara%20manual.`, '_blank');
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Nego Diterima Sementara!',
+                            text: `Sistem menyetujui tawaran Anda sebesar ${formattedTawaran}. Segera selesaikan pengambilan unit di konter fisik via WhatsApp.`,
+                            confirmButtonText: 'Klaim Unit via WhatsApp',
+                            confirmButtonColor: '#2563EB',
+                        }).then(() => {
+                            window.open(`https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20saya%20mengajukan%20nego%20otomatis%20di%20website%20untuk%20HP%20${encodeURIComponent(namaHP)}%20seharga%20${encodeURIComponent(formattedTawaran)}%20dan%20sudah%20disetujui%20oleh%20sistem.`, '_blank');
+                        });
+                    }
+                }
+            });
+        }
+
+        // Kirim Form Jual HP ke Konter
+        function submitJualHP(event) {
+            event.preventDefault();
+            const nama = document.getElementById("jual-nama").value;
+            const wa = document.getElementById("jual-wa").value;
+            const tipe = document.getElementById("jual-tipe").value;
+            const ramRom = document.getElementById("jual-ram-rom").value;
+            const kondisi = document.getElementById("jual-kondisi").value;
+            const harga = document.getElementById("jual-harga").value;
+            const formattedHarga = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(harga);
+
+            Swal.fire({
+                icon: 'info',
+                title: 'Data Siap Dikirim!',
+                text: 'Data HP Anda akan diformat dan dikirimkan langsung ke admin WhatsApp ALIZE PHONE.',
+                confirmButtonText: 'Kirim via WhatsApp',
+                confirmButtonColor: '#10B981',
+                showCancelButton: true,
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const message = `Halo ALIZE PHONE,\nsaya ingin menawarkan HP saya dengan rincian berikut:\n\n` +
+                                    `* Nama Pengirim: ${nama}\n` +
+                                    `* No WA: ${wa}\n` +
+                                    `* Merk / Tipe HP: ${tipe}\n` +
+                                    `* RAM / ROM: ${ramRom}\n` +
+                                    `* Kondisi HP: ${kondisi}\n` +
+                                    `* Harga Yang Diinginkan: ${formattedHarga}\n\n` +
+                                    `Apakah konter berminat? Terima kasih.`;
+                    
+                    window.open(`https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(message)}`, '_blank');
+                    document.getElementById("jual-form").reset();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
