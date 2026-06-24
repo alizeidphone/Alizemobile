@@ -298,7 +298,7 @@
                 </div>
             </div>
 
-            <div id="product-grid" class="grid grid-cols-3 md:grid-cols-6 gap-4">
+            <div id="product-grid" class="grid grid-cols-3 md:grid-cols-6 gap-4 items-start">
                 <!-- Loading State -->
                 <div class="col-span-full py-12 text-center text-slate-500">
                     <i class="fa-solid fa-circle-notch fa-spin text-3xl text-primaryBlue mb-3"></i>
@@ -539,34 +539,30 @@
                 const hargaFormat = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(prod.Harga);
                 const badgeColor = prod.Kondisi === "Baru" ? "bg-blue-100 text-blue-800" : "bg-amber-100 text-amber-800";
                 
-                return `
-                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-                        <div class="relative h-48 bg-slate-100 flex items-center justify-center overflow-hidden">
-                            <img src="${prod.Foto_URL}" alt="${prod.Nama_HP}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                            <span class="absolute top-3 left-3 ${badgeColor} text-xs font-extrabold px-3 py-1 rounded-full uppercase">${prod.Kondisi}</span>
-                        </div>
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">${prod.Merk}</span>
-                                <h4 class="font-extrabold text-navyDark text-lg mt-1 line-clamp-1">${prod.Nama_HP}</h4>
-                                <p class="text-slate-500 text-xs mt-2 line-clamp-2">${prod.Deskripsi}</p>
-                            </div>
-                            <div class="pt-4 mt-4 border-t border-slate-100">
-                                <span class="text-xs text-slate-400 block">Harga Pas:</span>
-                                <span class="text-primaryBlue font-extrabold text-xl">${hargaFormat}</span>
-                                
-                                <div class="grid grid-cols-2 gap-2 mt-4">
-                                    <button onclick="openNegoModal('${prod.Nama_HP}', ${prod.Harga}, ${prod.Min_Nego})" class="w-full bg-slate-100 hover:bg-amber-500 hover:text-white text-navyDark font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
-                                        <i class="fa-solid fa-tags"></i> Nego Harga
-                                    </button>
-                                    <a href="https://wa.me/${WA_ADMIN}?text=Halo%20Alize%20Mobile,%20apakah%20stok%20${encodeURIComponent(prod.Nama_HP)}%20dengan%20harga%20${encodeURIComponent(hargaFormat)}%20masih%20ready%20di%20konter?" target="_blank" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-1">
-                                        <i class="fab fa-whatsapp"></i> Beli Sekarang
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                // Di dalam map() Anda, gunakan fungsi ini untuk memotong teks
+const deskripsiPendek = prod.Deskripsi.length > 50 ? prod.Deskripsi.substring(0, 50) + "..." : prod.Deskripsi;
+
+return `
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col h-full">
+        <div class="relative h-32 bg-slate-100 overflow-hidden rounded-t-2xl">
+            <img src="${prod.Foto_URL}" class="w-full h-full object-cover">
+            <span class="absolute top-2 left-2 ${badgeColor} text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">${prod.Kondisi}</span>
+        </div>
+        
+        <div class="p-3 flex-1 flex flex-col">
+            <h4 class="font-bold text-navyDark text-sm line-clamp-1">${prod.Nama_HP}</h4>
+            <p class="text-slate-500 text-[10px] mt-1 line-clamp-2">${deskripsiPendek}</p>
+            
+            <div class="mt-auto pt-3">
+                <span class="text-primaryBlue font-extrabold text-sm">${hargaFormat}</span>
+                <div class="grid grid-cols-2 gap-1 mt-2">
+                    <button class="text-[10px] bg-slate-100 py-1.5 rounded-lg font-bold">Nego</button>
+                    <button class="text-[10px] bg-primaryBlue text-white py-1.5 rounded-lg font-bold">Beli</button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
             }).join('');
         }
 
