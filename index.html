@@ -736,70 +736,75 @@ return `
         }
 
         // Fungsi Download PDF
-        async function downloadInvoice(dataServis) {
-            const { jsPDF } = window.jspdf;
-            // Ukuran 58mm x 150mm (Standar printer thermal)
-            const doc = new jsPDF({ unit: "mm", format: [58, 160] });
-        
-            // HEADER
-            doc.setFont("courier", "bold");          // ✅ Ganti font ke gaya mesin tik
-            doc.setFontSize(12);
-            doc.text("ALIZE PHONE", 29, 10, { align: "center" });
-            doc.setFontSize(7);
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 29, 15, { align: "center" });
-            doc.line(5, 18, 53, 18);
-            doc.line(5, 19, 53, 19);
-        
-            // INVOICE SERVIS
-            doc.setFont("courier", "bold");           // ✅ Font diganti
-            doc.setFontSize(9);
-            doc.text("INVOICE SERVIS", 5, 25);
+async function downloadInvoice(dataServis) {
+    const { jsPDF } = window.jspdf;
+    // Ukuran 58mm x 160mm
+    const doc = new jsPDF({ unit: "mm", format: [58, 160] });
+
+    // HEADER
+    doc.setFont("courier", "bold");
+    doc.setFontSize(12);
+    doc.text("ALIZE PHONE", 29, 10, { align: "center" });
+    doc.setFontSize(7);
+    doc.setFont("courier", "normal");
+    doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 29, 15, { align: "center" });
+    doc.line(5, 18, 53, 18);
+    doc.line(5, 19, 53, 19);
+
+    // INVOICE SERVIS
+    doc.setFont("courier", "bold");
+    doc.setFontSize(9);
+    doc.text("INVOICE SERVIS", 5, 25);
+    
+    doc.setFont("courier", "normal");
+    doc.setFontSize(7);
+    doc.text(`No. Invoice    : ${dataServis.ID_Servis || '-'}`, 5, 30);
+    doc.text(`Tanggal Masuk  : ${dataServis.Tanggal || '-'}`, 5, 34);
+    doc.text(`Tgl Selesai    : ${dataServis.Tanggal_Selesai || '-'}`, 5, 38);
+
+    // DATA PELANGGAN
+    doc.setFont("courier", "bold");
+    doc.text("Data Pelanggan :", 5, 46);
+    doc.setFont("courier", "normal");
+    doc.text(`Nama           : ${dataServis.Nama || '-'}`, 5, 50);
+    doc.text(`Alamat         : ${dataServis.Alamat || '-'}`, 5, 54);
+    doc.text(`No WA          : ${dataServis.No_WA || '-'}`, 5, 58);
+    doc.text(`Tipe HP        : ${dataServis.Tipe_HP || '-'}`, 5, 62);
+
+    // RINCIAN
+    doc.setFont("courier", "bold");
+    doc.text("Rincian :", 5, 70);
+    doc.setFont("courier", "normal");
+    doc.text(`Kerusakan      : ${dataServis.Keluhan || '-'}`, 5, 74);
+    doc.text(`Sparepart      : ${dataServis.Sparepart || '-'}`, 5, 78);
+    doc.text(`Kelengkapan    : ${dataServis.Kelengkapan || '-'}`, 5, 82);
+    doc.text(`Biaya          : ${dataServis.Biaya || '0'}`, 5, 86);
+    doc.text(`Tgl Selesai    : ${dataServis.Tanggal_Selesai || '-'}`, 5, 90);
+    doc.text(`Garansi        : ${dataServis.Garansi || '-'}`, 5, 94);
+    doc.line(5, 97, 53, 97);
+    doc.line(5, 98, 53, 98);
             
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            doc.setFontSize(7);
-            doc.text(`No. Invoice    : ${dataServis.ID_Servis || '-'}`, 5, 30);     // ✅ Spasi diatur
-            doc.text(`Tanggal Masuk  : ${dataServis.Tanggal || '-'}`, 5, 34);        // ✅ Spasi diatur
-            doc.text(`Tgl Selesai    : ${dataServis.Tanggal_Selesai || '-'}`, 5, 38); // ✅ Spasi diatur
-        
-            // DATA PELANGGAN
-            doc.setFont("courier", "bold");           // ✅ Font diganti
-            doc.text("Data Pelanggan :", 5, 46);
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            doc.text(`Nama           : ${dataServis.Nama || '-'}`, 5, 50);      // ✅ Spasi diatur
-            doc.text(`Alamat         : ${dataServis.Alamat || '-'}`, 5, 54);    // ✅ Spasi diatur
-            doc.text(`No WA          : ${dataServis.No_WA || '-'}`, 5, 58);     // ✅ Spasi diatur
-            doc.text(`Tipe HP        : ${dataServis.Tipe_HP || '-'}`, 5, 62);   // ✅ Spasi diatur
-        
-            // RINCIAN
-            doc.setFont("courier", "bold");           // ✅ Font diganti
-            doc.text("Rincian :", 5, 70);
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            doc.text(`Kerusakan      : ${dataServis.Keluhan || '-'}`, 5, 74);    // ✅ Spasi diatur
-            doc.text(`Sparepart      : ${dataServis.Sparepart || '-'}`, 5, 78);  // ✅ Spasi diatur
-            doc.text(`Kelengkapan    : ${dataServis.Kelengkapan || '-'}`, 5, 82);// ✅ Spasi diatur
-            doc.text(`Biaya          : ${dataServis.Biaya || '0'}`, 5, 86);      // ✅ Spasi diatur
-            doc.text(`Tgl Selesai    : ${dataServis.Tanggal_Selesai || '-'}`, 5, 90); // ✅ Spasi diatur
-            doc.text(`Garansi        : ${dataServis.Garansi || '-'}`, 5, 94);    // ✅ Spasi diatur
-            doc.line(5, 97, 53, 97);
-            doc.line(5, 98, 53, 98);
-                    
-            // CATATAN & KETENTUAN
-            doc.setFont("courier", "bold");           // ✅ Font diganti
-            doc.text("Catatan :", 5, 100);
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            const catatan = "- Garansi tidak berlaku apabila Nota hilang\n- Terbentur Benda Keras/Human Error (Jatuh/Air)\n- Kerusakan berbeda/tidak sama dengan awal";
-            doc.text(doc.splitTextToSize(catatan, 48), 5, 105);
-        
-            doc.setFont("courier", "bold");           // ✅ Font diganti
-            doc.text("Ketentuan Perbaikan :", 5, 120);
-            doc.setFont("courier", "normal");         // ✅ Font diganti
-            const ketentuan = "- Pengambilan WAJIB disertai Nota.\n- Maksimal Pengambilan 1 bulan setelah Perbaikan selesai.\n- Konfirmasikan kembali jika waktu pengerjaan melebihi estimasi.";
-            doc.text(doc.splitTextToSize(ketentuan, 48), 5, 125);
+    // CATATAN & KETENTUAN ✅ Lebarkan dari 48 ke 50
+    doc.setFont("courier", "bold");
+    doc.text("Catatan :", 5, 102);
+    doc.setFont("courier", "normal");
+    const catatan = "- Garansi tidak berlaku apabila nota hilang\n- Terbentur benda keras / Human Error (Jatuh / Air)\n- Kerusakan berbeda / tidak sama dengan awal";
+    doc.text(doc.splitTextToSize(catatan, 50), 5, 107);
 
-            doc.save(`Invoice_${dataServis.ID_Servis}.pdf`);
-    }
+    doc.setFont("courier", "bold");
+    doc.text("Ketentuan Perbaikan :", 5, 122);
+    doc.setFont("courier", "normal");
+    const ketentuan = "- Pengambilan WAJIB disertai nota\n- Maksimal pengambilan 1 bulan setelah selesai\n- Konfirmasi jika pengerjaan melebihi estimasi";
+    doc.text(doc.splitTextToSize(ketentuan, 50), 5, 127);
 
+    // ✅ TAMBAHAN: Garis putus & Ucapan Terima Kasih
+    doc.setFont("courier", "normal");
+    doc.text("-------------------------------------------", 5, 142);
+    const ucapan = "Terimakasih! HP sudah normal. Sudah kami bersihkan dari file sampah, cache, dan aura-aura magis kiriman mantan.";
+    doc.text(doc.splitTextToSize(ucapan, 50), 5, 147);
+
+    doc.save(`Invoice_${dataServis.ID_Servis}.pdf`);
+}
         // Modal Nego Harga
         function openNegoModal(namaHP, hargaAsli, hargaMinimum) {
             Swal.fire({
