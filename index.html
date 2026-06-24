@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -726,6 +727,57 @@ return `
                 Swal.fire('Eror Jaringan', 'Terjadi gangguan koneksi internet saat mengambil data.', 'error');
             }
         }
+        // Setelah resultBox.classList.remove("hidden");
+// TAMBAHKAN TOMBOL INI DI BAWAHNYA
+if(currentStatus === "Selesai") {
+   const resContainer = document.getElementById("tracking-result");
+   const btnUnduh = document.createElement("button");
+   btnUnduh.className = "mt-4 w-full bg-emerald-600 text-white font-bold py-3 rounded-xl";
+   btnUnduh.innerText = "Unduh Invoice (Wajib)";
+   btnUnduh.onclick = () => downloadInvoice(data);
+   resContainer.appendChild(btnUnduh);
+}
+
+        // ... kode trackService Anda sebelumnya ...
+} // <--- Tutup kurung kurawal trackService
+
+// TEMPEL FUNGSI INI DI BAWAHNYA
+async function downloadInvoice(dataServis) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("ALIZE PHONE", 105, 20, { align: "center" });
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 105, 27, { align: "center" });
+    
+    doc.line(20, 32, 190, 32);
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("INVOICE SERVIS", 20, 45);
+    
+    // Data Dinamis
+    doc.setFontSize(11);
+    doc.text(`No. Invoice : ${dataServis.id_servis}`, 20, 55);
+    doc.text(`Tanggal Masuk : ${new Date().toLocaleDateString()}`, 20, 62);
+    
+    doc.setFont("helvetica", "bold");
+    doc.text("Data Pelanggan :", 20, 80);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Nama           : ${dataServis.nama}`, 20, 88);
+    doc.text(`No WhatsApp    : ${dataServis.no_wa}`, 20, 95);
+    doc.text(`Tipe HP        : ${dataServis.tipe_hp}`, 20, 102);
+
+    doc.setFont("helvetica", "bold");
+    doc.text("Rincian :", 20, 120);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Biaya Perbaikan : ${dataServis.biaya}`, 20, 128);
+
+    doc.save(`Invoice_${dataServis.id_servis}.pdf`);
+}
 
         // Modal Nego Harga
         function openNegoModal(namaHP, hargaAsli, hargaMinimum) {
