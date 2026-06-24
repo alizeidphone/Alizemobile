@@ -774,11 +774,12 @@ return `
     doc.setFont("helvetica", "bold");
     doc.text("Rincian :", 5, 70);
     doc.setFont("helvetica", "normal");
-    doc.text(`Kerusakan    : ${dataServis.Keluhan || '-'}`, 5, 74);
-    doc.text(`Sparepart    : -`, 5, 78);
-    doc.text(`Kelengkapan  : -`, 5, 82);
-    doc.text(`Biaya        : ${dataServis.Biaya || '0'}`, 5, 86);
-    doc.text(`Garansi      : ${dataServis.Catatan || '-'}`, 5, 90);
+    doc.text(`Kerusakan     : ${dataServis.Keluhan || '-'}`, 5, 74);
+    doc.text(`Sparepart     : ${dataServis.Sparepart || '-'}`, 5, 78);
+    doc.text(`Kelengkapan   : ${dataServis.Kelengkapan || '-'}`, 5, 82);
+    doc.text(`Biaya         : ${dataServis.Biaya || '0'}`, 5, 86);
+    doc.text(`Tgl Selesai   : ${dataServis.Tanggal_Selesai || '-'}`, 5, 90);
+    doc.text(`Garansi       : ${dataServis.Garansi || '-'}`, 5, 90);
 
     // CATATAN & KETENTUAN (Menggunakan splitTextToSize agar rapi)
     doc.setFont("helvetica", "bold");
