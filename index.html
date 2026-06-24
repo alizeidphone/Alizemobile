@@ -686,7 +686,6 @@ return `
             try {
                 const response = await fetch(`${API_URL}?action=Data_Servis&id_servis=${encodeURIComponent(trackingId)}`);
                 const res = await response.json();
-
                 Swal.close();
 
                 if (res.success) {
@@ -696,11 +695,11 @@ return `
                     
                     const biayaFormat = data.Biaya && data.Biaya > 0 
                         ? new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(data.Biaya) 
-                        : "Sedang dianalisis (Menunggu Diagnosa)";
+                        : "Sedang dianalisis";
                     document.getElementById("res-biaya").innerText = biayaFormat;
                     document.getElementById("res-catatan").innerText = data.Catatan || "Perangkat sudah diterima oleh teknisi lab.";
 
-                    // Update Timeline Visual
+                    // Update Timeline
                     const steps = ["Diterima", "Diagnosa", "Perbaikan", "Selesai"];
                     const currentStatus = data.Status;
                     const currentActiveIndex = steps.indexOf(currentStatus);
@@ -708,76 +707,54 @@ return `
                     steps.forEach((step, index) => {
                         const stepEl = document.getElementById(`step-${step}`);
                         const icon = stepEl.querySelector(".step-icon");
-
                         if (index <= currentActiveIndex) {
-                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-primaryBlue text-white step-icon shadow-lg shadow-blue-500/30 transition-all duration-300";
+                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-primaryBlue text-white step-icon shadow-lg shadow-blue-500/30";
                             stepEl.classList.add("text-primaryBlue");
                         } else {
-                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow transition-all duration-300";
+                            icon.className = "w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-200 text-slate-500 step-icon shadow";
                             stepEl.classList.remove("text-primaryBlue");
                         }
                     });
 
                     resultBox.classList.remove("hidden");
+                    
+                    // Tombol Unduh (Hanya muncul jika Selesai)
+                    if(currentStatus === "Selesai") {
+                        const btnUnduh = document.createElement("button");
+                        btnUnduh.className = "mt-4 w-full bg-emerald-600 text-white font-bold py-3 rounded-xl hover:bg-emerald-700 transition";
+                        btnUnduh.innerText = "Unduh Invoice (Wajib)";
+                        btnUnduh.onclick = () => downloadInvoice(data);
+                        resultBox.appendChild(btnUnduh);
+                    }
                 } else {
-                    Swal.fire('ID Tidak Ditemukan', res.message || 'ID Servis yang Anda masukkan tidak terdaftar.', 'error');
+                    Swal.fire('ID Tidak Ditemukan', res.message || 'ID Servis tidak terdaftar.', 'error');
                 }
             } catch (error) {
                 console.error("Gagal melacak:", error);
-                Swal.fire('Eror Jaringan', 'Terjadi gangguan koneksi internet saat mengambil data.', 'error');
+                Swal.fire('Eror Jaringan', 'Terjadi gangguan koneksi.', 'error');
             }
         }
-        // Setelah resultBox.classList.remove("hidden");
-// TAMBAHKAN TOMBOL INI DI BAWAHNYA
-if(currentStatus === "Selesai") {
-   const resContainer = document.getElementById("tracking-result");
-   const btnUnduh = document.createElement("button");
-   btnUnduh.className = "mt-4 w-full bg-emerald-600 text-white font-bold py-3 rounded-xl";
-   btnUnduh.innerText = "Unduh Invoice (Wajib)";
-   btnUnduh.onclick = () => downloadInvoice(data);
-   resContainer.appendChild(btnUnduh);
-}
 
-        // ... kode trackService Anda sebelumnya ...
-} // <--- Tutup kurung kurawal trackService
-
-// TEMPEL FUNGSI INI DI BAWAHNYA
-async function downloadInvoice(dataServis) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
-    doc.text("ALIZE PHONE", 105, 20, { align: "center" });
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
-    doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 105, 27, { align: "center" });
-    
-    doc.line(20, 32, 190, 32);
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
-    doc.text("INVOICE SERVIS", 20, 45);
-    
-    // Data Dinamis
-    doc.setFontSize(11);
-    doc.text(`No. Invoice : ${dataServis.id_servis}`, 20, 55);
-    doc.text(`Tanggal Masuk : ${new Date().toLocaleDateString()}`, 20, 62);
-    
-    doc.setFont("helvetica", "bold");
-    doc.text("Data Pelanggan :", 20, 80);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Nama           : ${dataServis.nama}`, 20, 88);
-    doc.text(`No WhatsApp    : ${dataServis.no_wa}`, 20, 95);
-    doc.text(`Tipe HP        : ${dataServis.tipe_hp}`, 20, 102);
-
-    doc.setFont("helvetica", "bold");
-    doc.text("Rincian :", 20, 120);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Biaya Perbaikan : ${dataServis.biaya}`, 20, 128);
-
-    doc.save(`Invoice_${dataServis.id_servis}.pdf`);
-}
+        // Fungsi Download PDF
+        async function downloadInvoice(dataServis) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(20);
+            doc.text("ALIZE PHONE", 105, 20, { align: "center" });
+            doc.setFontSize(10);
+            doc.setFont("helvetica", "normal");
+            doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 105, 27, { align: "center" });
+            doc.line(20, 32, 190, 32);
+            doc.setFontSize(14);
+            doc.text("INVOICE SERVIS", 20, 45);
+            doc.setFontSize(11);
+            doc.text(`No. Invoice : ${dataServis.id_servis}`, 20, 55);
+            doc.text(`Nama Pelanggan : ${dataServis.nama}`, 20, 65);
+            doc.text(`Tipe HP : ${dataServis.tipe_hp}`, 20, 75);
+            doc.text(`Biaya : ${dataServis.biaya}`, 20, 85);
+            doc.save(`Invoice_${dataServis.id_servis}.pdf`);
+        }
 
         // Modal Nego Harga
         function openNegoModal(namaHP, hargaAsli, hargaMinimum) {
