@@ -749,6 +749,7 @@ return `
     doc.setFont("helvetica", "normal");
     doc.text("Jln. Bojong Jengkol, Kosangka No.12 Tasikmalaya", 29, 15, { align: "center" });
     doc.line(5, 18, 53, 18);
+    doc.line(5, 19, 53, 19);
 
     // INVOICE SERVIS
     doc.setFont("helvetica", "bold");
@@ -759,7 +760,7 @@ return `
     doc.setFontSize(7);
     doc.text(`No. Invoice : ${dataServis.ID_Servis || '-'}`, 5, 30);
     doc.text(`Tanggal Masuk : ${dataServis.Tanggal || '-'}`, 5, 34);
-    doc.text(`Tanggal Selesai : `, 5, 38);
+    doc.text(`Tanggal Selesai : ${dataServis.Tanggal_Selesai || '-'}`, 5, 38);
 
     // DATA PELANGGAN
     doc.setFont("helvetica", "bold");
@@ -779,19 +780,21 @@ return `
     doc.text(`Kelengkapan   : ${dataServis.Kelengkapan || '-'}`, 5, 82);
     doc.text(`Biaya         : ${dataServis.Biaya || '0'}`, 5, 86);
     doc.text(`Tgl Selesai   : ${dataServis.Tanggal_Selesai || '-'}`, 5, 90);
-    doc.text(`Garansi       : ${dataServis.Garansi || '-'}`, 5, 90);
-
+    doc.text(`Garansi       : ${dataServis.Garansi || '-'}`, 5, 94);
+    doc.line(5, 97, 53, 97);
+    doc.line(5, 98, 53, 98);
+            
     // CATATAN & KETENTUAN (Menggunakan splitTextToSize agar rapi)
     doc.setFont("helvetica", "bold");
     doc.text("Catatan :", 5, 100);
     doc.setFont("helvetica", "normal");
-    const catatan = "- Garansi tidak berlaku apabila Nota hilang\n- Human Error (Jatuh/Air)\n- Kerusakan berbeda/tidak sama dengan awal";
+    const catatan = "- Garansi tidak berlaku apabila Nota hilang\n- Terbentur Benda Keras/Human Error (Jatuh/Air)\n- Kerusakan berbeda/tidak sama dengan awal";
     doc.text(doc.splitTextToSize(catatan, 48), 5, 105);
 
     doc.setFont("helvetica", "bold");
     doc.text("Ketentuan Perbaikan :", 5, 120);
     doc.setFont("helvetica", "normal");
-    const ketentuan = "- Pengambilan WAJIB disertai Nota.\n- Maksimal 1 bulan setelah selesai.\n- Konfirmasikan kembali jika waktu pengerjaan melebihi estimasi.";
+    const ketentuan = "- Pengambilan WAJIB disertai Nota.\n- Maksimal Pengambilan 1 bulan setelah Perbaikan selesai.\n- Konfirmasikan kembali jika waktu pengerjaan melebihi estimasi.";
     doc.text(doc.splitTextToSize(ketentuan, 48), 5, 125);
 
     doc.save(`Invoice_${dataServis.ID_Servis}.pdf`);
